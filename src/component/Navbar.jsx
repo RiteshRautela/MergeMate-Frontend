@@ -3,7 +3,7 @@ import React from 'react'
 function Navbar() {
     return (
         <div>
-            <div className="navbar bg-accent-content shadow-sm">
+            <div className="navbar l bg-base-200  shadow-sm">
                 <div className="flex-1">
                     <a className="btn btn-ghost text-xl">MergeMate</a>
                 </div>
