@@ -1,17 +1,23 @@
 import { BrowserRouter, Routes , Route } from "react-router-dom"
 import Body from "./component/Body"
 import Login from "./component/Login"
+import Feed from "./component/Feed"
 import Profile from "./component/Profile"
+import {Provider} from "react-redux"
+import appStore from "./utils/appStore"
 
 function App() {
  
 
   return (
     <>
-    <BrowserRouter basename="/">
+  <Provider store={appStore}>
+
+  <BrowserRouter basename="/">
       <Routes>
 
         <Route path="/" element = {<Body/>} > 
+        <Route path="/feed" element={<Feed/>} />
         <Route path="/login" element={<Login/>} />
         <Route path="/Profile" element={<Profile/>} />
         
@@ -19,8 +25,9 @@ function App() {
         
       </Routes>
     </BrowserRouter>
+  </Provider>
     
-   <h1 class="text-3xl text-center" >hellow world</h1>
+   
     </>
   )
 }
