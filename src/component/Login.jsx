@@ -23,9 +23,10 @@ function Login() {
       },{
         withCredentials: true // ✅ This tells Axios to include cookies
       })
+      // write data to store
       dispatch(addUser(res.data))
-      // navigate the user to different Url
-      return navigate("/feed")
+      // once user loggged in navigate the user to feed url("/feed") it must be same as we used in  <Route path="/feed" element={<Feed/>} />
+       navigate("/feed")
 
     } catch (err) {
       console.log("Error" + err.message)
@@ -55,7 +56,7 @@ function Login() {
               placeholder="yourmail@.com" 
               value={email}
               onChange={(e)=>setEmialId(e.target.value)}
-              require
+              required
               />
             </label>
 
@@ -80,7 +81,7 @@ function Login() {
                 placeholder="Password"
                 value={password}
                 onChange={(e)=>setPassword(e.target.value)}
-                require
+                
 
               />
             </label>

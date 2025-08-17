@@ -16,10 +16,14 @@ ui16
 -  whenever you are making an api call using axios so pass { withCredentials: true}
 - install react-redux-toolkit --> npm install @reduxjs/toolkit
 -  configurestore ==> add a provider to app.js ==> create slice and export things ==> add reducer to store 
-- add data to reduxstore by dispatch an action (by using useDispatch() hook given by react redux )
+- add data to reduxstore by dispatch an action (by using useDispatch() hook given by react redux ) (login component)
 
 - there is a redux tool kit extension --> redux dev tool for chrome but for firefox search in google 
 - subscribe to the store using useSelector((store)=>store.user). in Navbar component 
 - when user log in redirect user to feed import {useNavigate} from "react-router-dom" 
 
 - Refactor our code to add const file 
+----------------------------------------------------------------------------------------
+UI17
+- you should not be able to access other routes without login (Browser component)
+- if token is not valid redirect to login page (bowser component)
