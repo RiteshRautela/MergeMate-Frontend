@@ -27,4 +27,5 @@ ui16
 UI17
 - you should not be able to access other routes without login (Browser component)
 - if token is not valid redirect to login page (bowser component)
-- logout 
+- logout --> delete cookies (logout api call) -> clear data from redux store (removeUser)  ->  naviagte to login
+- profile
