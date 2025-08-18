@@ -11,6 +11,7 @@ function Login() {
   const [password, setPassword] = useState("chumT@123_321")
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const [error , setError] = useState("");
 
   // handle login click
   const handleLogin = async () =>{
@@ -29,7 +30,10 @@ function Login() {
        navigate("/feed")
 
     } catch (err) {
-      console.log("Error" + err.message)
+      setError( err.response.data || "something went wrong")
+      console.error("Login failed:", err.response.data); 
+      
+      
     }
   }
   return (
@@ -59,6 +63,7 @@ function Login() {
               required
               />
             </label>
+            
 
             <label className="input validator">
               <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -87,6 +92,7 @@ function Login() {
             </label>
 
           </div>
+          <p className='text-red-600'>{error}</p>
           <div className="card-actions justify-center required my-5">
             <button className="btn btn-primary " onClick={handleLogin}>Login</button>
           </div>

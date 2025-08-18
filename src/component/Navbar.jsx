@@ -1,11 +1,29 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import { Base_Url } from "../utils/constant"
+import axios from "axios"
+import { removeUser } from "../utils/userSlice"
 
 function Navbar() {
+    const navigate = useNavigate()
+    const dispatch = useDispatch();
     // read data from the store(Subscribe to store )
     const user = useSelector((store) => store.user);
-    console.log(user);
+    // console.log(user);
+
+    const handleLogOut = async () => {
+        try {
+            await axios.post(Base_Url + "/logout", {}, { withCredentials: true }) // this api call expires the cookie
+            // after clearing up the cookie clear data from the redux store and then user will navigated to login
+            dispatch(removeUser())
+            navigate("/login")
+            // setTimeout(() => navigate("/login"), 0); // ensures redirect always fires
+
+        } catch (err) {
+            console.error(err)
+        }
+    }
 
     return (
         <div className="navbar l bg-base-200 shadow-sm">
@@ -14,7 +32,7 @@ function Navbar() {
             </div>
             <div className="flex gap-2">
                 {/* Only show avatar if user is logged in */}
-                { user._id && (
+                {user && user._id && (
                     <div className="dropdown dropdown-end mx-4">
                         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                             <div className="w-10 rounded-full">
@@ -35,7 +53,8 @@ function Navbar() {
                                 </Link>
                             </li>
                             <li><a>Settings</a></li>
-                            <a>Logout</a>
+                            <li><a onClick={handleLogOut}>logout</a></li>
+
                         </ul>
                     </div>
                 )}
