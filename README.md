@@ -28,4 +28,5 @@ UI17
 - you should not be able to access other routes without login (Browser component)
 - if token is not valid redirect to login page (bowser component)
 - logout --> delete cookies (logout api call) -> clear data from redux store (removeUser)  ->  naviagte to login
-- profile
+- Feed-> call feed api and all the user are shown 
+- profile --> should give a (form) where i can update my data 
