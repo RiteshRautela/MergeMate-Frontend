@@ -33,6 +33,9 @@ UI17
 - show Toast message on save of profile (dont forget to turnoff the toast after 3sec using setTimeOut)
 ---------------------------------------------------------------------------------------------------------
 UI18
-- whoEver Connected to me , so like i can see all the connection in one place (Connection component )
+- whoEver Connected to me , so like i can see all the friends in one place (Connection component )
 connection component we have to make http://localhost:7777/user/connections --> GET call to get user connection..
+
+
+- created Requeset to see all connection requset people who have sended the interested or ignored conenction requests
 
