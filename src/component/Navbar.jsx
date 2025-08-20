@@ -52,7 +52,7 @@ function Navbar() {
                                     <span className="badge">New</span>
                                 </Link>
                             </li>
-                            <li><a>Settings</a></li>
+                          <Link to="/connection"><li><a>Connections</a></li></Link>
                             <li><a onClick={handleLogOut}>logout</a></li>
 
                         </ul>

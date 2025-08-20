@@ -13,7 +13,8 @@ const EditProfile = ({ user }) => {
   const [age, setAge] = useState(user.age);
   const [gender, setGender] = useState(user.gender);
   const [about, setAbout] = useState(user.about);
-  const [skills, setSkills] = useState(user.skills);
+  // const [skills, setSkills] = useState(user.skills);
+  const [skills, setSkills] = useState(user.skills ? user.skills.join(', ') : "");
   const [photoUrl, setPhotoUrl] = useState(user.photoUrl);
   const [error, setError] = useState("");
   const [showTost, setShowTost] = useState(false)
@@ -26,14 +27,15 @@ const EditProfile = ({ user }) => {
     // clear error
     setError("")
     try {
-
+      const skillsArray = skills.split(',').map(s => s.trim());
       const res = await axios.patch(Base_Url + "/profile/edit", {
         firstName,
         lastName,
         photoUrl,
         about,
         gender,
-        age
+        age,
+        skills: skillsArray
       }, { withCredentials: true })
       dispatch(addUser(res.data?.data))
       setShowTost(true)
@@ -176,7 +178,7 @@ const EditProfile = ({ user }) => {
           </div>
         </div>
       </div>
-      <UserCard user={{ firstName, lastName, photoUrl, about, gender, age, skills }} />
+      <UserCard user={{ firstName, lastName, photoUrl, about, gender, age, skills: skills.split(',').map(s => s.trim()) }} />
     </div>
 
       {showTost && <div className="toast toast-top toast-center">
