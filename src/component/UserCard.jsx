@@ -1,8 +1,23 @@
+import axios from 'axios';
 import React from 'react';
+import { Base_Url } from "../utils/constant"
+import { useDispatch } from 'react-redux';
+import { removUserFromFeed } from '../utils/feedSlice';
 
 const UserCard = ({ user }) => {
+    const dispatch = useDispatch()
     // Destructuring skills from the user object
-    const { firstName, lastName, photoUrl, about, gender, age, skills=[] } = user;
+    const { _id,firstName, lastName, photoUrl, about, gender, age, skills=[] } = user;
+
+    const handleSendRequest = async(status , userId) =>{
+        try {
+            const res = await axios.post(Base_Url+"/request/send/"+status+"/" +  userId ,{} , {withCredentials:true} )
+            dispatch(removUserFromFeed(userId))
+
+        } catch (err) {
+            console.log(err.message)
+        }
+    }
 
     return (
         <div className="card bg-base-300 w-96 shadow-sm flex flex-wrap my-4">
@@ -13,7 +28,7 @@ const UserCard = ({ user }) => {
             </figure>
             <div className="card-body">
                 <h2 className="card-title">{firstName + " " + lastName}</h2>
-                {age && gender && <p>{age + ", " + gender}</p>}
+                {age && gender && <p>{age +   " || "  + gender}</p>}
 
                 {/* Corrected "classname" to "className" */}
                 <p className="text-red-400 my-2">{about}</p>
@@ -36,8 +51,8 @@ const UserCard = ({ user }) => {
                 {/* --- END: Added Skills Section --- */}
 
                 <div className="card-actions justify-center my-9">
-                    <button className="btn btn-primary ">Ignore</button>
-                    <button className="btn btn-primary">Interested</button>
+                    <button className="btn  btn-secondary mx-2" onClick={()=>handleSendRequest("ignored" , _id)}>Ignore</button>
+                    <button className="btn btn-accent mx-2" onClick={()=>handleSendRequest("interested" , _id)}>Interested</button>
                 </div>
             </div>
         </div>

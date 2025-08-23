@@ -39,3 +39,11 @@ connection component we have to make http://localhost:7777/user/connections --> 
 
 - created Requeset to see all connection requset people who have sended the interested or ignored conenction requests
 
+---------------------------------------------------------------------------------------------------------
+UI19
+- send Interest/Ignore the user card from the feed and that user card whem we sended (interes/ignored) connection should be removed fromt the feed. we make an api call /request/send/interested/ in userCard component
+
+- Signup new user
+- E2E testingas
+
+

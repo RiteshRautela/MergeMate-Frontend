@@ -28,7 +28,7 @@ function Navbar() {
     return (
         <div className="navbar l bg-base-200 shadow-sm">
             <div className="flex-1">
-                <Link to="/" className="btn btn-ghost text-xl">MergeMate</Link>
+                <Link to="/feed" className="btn btn-ghost text-xl">MergeMate</Link>
             </div>
             <div className="flex gap-2">
                 {/* Only show avatar if user is logged in */}
@@ -52,7 +52,8 @@ function Navbar() {
                                     <span className="badge">New</span>
                                 </Link>
                             </li>
-                          <Link to="/connection"><li><a>Connections</a></li></Link>
+                          <Link to="/connection"><li><a>Friends</a></li></Link>
+                           <Link to="/request"><li><a>Connection Requests</a></li></Link>
                             <li><a onClick={handleLogOut}>logout</a></li>
 
                         </ul>
