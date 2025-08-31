@@ -41,7 +41,7 @@ const Connection = () => {
         connections.map((connection) => {
           const { firstName, lastName, photoUrl, about, gender, age, skills } = connection
           return (
-            <div className='m-4 p-4 b rounded-lg bg-base-300 flex w-1/2 mx-auto' key={connection.id}>
+            <div className='m-4 p-4 b rounded-lg bg-base-300 flex w-1/2 mx-auto' key={connection._id}>
               <div className=''>
                 <img className='w-20 h-20 rounded-full ' src={photoUrl} alt="photo" />
               </div>
@@ -49,7 +49,7 @@ const Connection = () => {
                 <h2 className='font-bold text-xl'>{firstName + " " + lastName}</h2>
                 {age && gender && <p>{age + "  , " + gender}</p>}
                 <div className="flex flex-wrap gap-2 mt-2">
-                  {skills.map((skill, index) => (
+                  {skills?.map((skill, index) => (
                     <div key={index} className="badge badge-primary">
                       {skill}
                     </div>

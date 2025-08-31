@@ -43,7 +43,7 @@ function Login() {
       }, {
         withCredentials: true
       });
-      dispatch(addUser(res.data.data));
+      dispatch(addUser(res.data));
       navigate("/profile");
     } catch (err) {
       setError(err.response?.data || "something went wrong");

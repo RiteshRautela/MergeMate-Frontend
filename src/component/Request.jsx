@@ -64,7 +64,7 @@ const Request = () => {
                                 <h2 className='font-bold text-xl'>{firstName + " " + lastName}</h2>
                                 {age && gender && <p>{age + "  , " + gender}</p>}
                                 <div className="flex flex-wrap gap-2 mt-2">
-                                    {skills.map((skill, index) => (
+                                    {skills?.map((skill, index) => (
                                         <div key={index} className="badge badge-primary">
                                             {skill}
                                         </div>
