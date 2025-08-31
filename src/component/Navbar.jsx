@@ -28,7 +28,7 @@ function Navbar() {
     return (
         <div className="navbar l bg-base-200 shadow-sm">
             <div className="flex-1">
-                <Link to="/feed" className="btn btn-ghost text-xl">MergeMate</Link>
+                <Link to={user && user._id ? "/feed" : "/login"} className="btn btn-ghost text-xl">MergeMate</Link>
             </div>
             <div className="flex gap-2">
                 {/* Only show avatar if user is logged in */}
