@@ -47,3 +47,13 @@ UI19
 - E2E testingas
 
 
+-----------------------------------------------------------
+# Sending Emials via SES 
+
+    - Create a IAM user
+    - Give Access to AmazonSESFullAccess
+    - Amazon SES: Create an identity
+    - Verify domain name
+    - or Verify an email address 
+    - Install AWS SDk  make sure you're on v3 
+    - Code Example -> https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ses#code-examples

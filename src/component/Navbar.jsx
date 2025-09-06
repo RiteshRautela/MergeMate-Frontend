@@ -52,9 +52,9 @@ function Navbar() {
                                     <span className="badge">New</span>
                                 </Link>
                             </li>
-                          <Link to="/connection"><li><a>Friends</a></li></Link>
-                           <Link to="/request"><li><a>Connection Requests</a></li></Link>
-                            <li><a onClick={handleLogOut}>logout</a></li>
+                            <li><Link to="/connection">Friends</Link></li>
+                            <li><Link to="/request">Connection Requests</Link></li>
+                            <li><a onClick={handleLogOut}>Logout</a></li>
 
                         </ul>
                     </div>
