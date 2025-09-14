@@ -10,6 +10,7 @@ import Request from "./component/Request"
 import PrivacyPolicy from "./component/PrivacyPolicy"
 import RefundPolicy from "./component/RefundPolicy"
 import Contact from "./component/Contact"
+import Premium from "./component/Premium"
 
 function App() {
  
@@ -29,7 +30,8 @@ function App() {
         <Route path="/request" element={<Request/>} />
         <Route path="/privacy-policy" element={<PrivacyPolicy/>} />
         <Route path="/refund-policy" element={<RefundPolicy/>} />
-        <Route path="//contact" element={<Contact/>} />
+        <Route path="/contact" element={<Contact/>} />
+        <Route path="/premium" element={<Premium/>} />
         
         </Route>
         

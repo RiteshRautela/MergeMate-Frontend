@@ -54,6 +54,7 @@ function Navbar() {
                             </li>
                             <li><Link to="/connection">Friends</Link></li>
                             <li><Link to="/request">Connection Requests</Link></li>
+                            <li><Link to="/premium">Premium</Link></li>
                             <li><a onClick={handleLogOut}>Logout</a></li>
 
                         </ul>
