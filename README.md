@@ -56,4 +56,19 @@ UI19
     - Verify domain name
     - or Verify an email address 
     - Install AWS SDk  make sure you're on v3 
-    - Code Example -> https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ses#code-examples
+    - Code Example -> https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ses#code-examples   
+
+    ----------------------------------------------------------------------------------------------------------------------
+
+# Razorpay payment gateway Integration
+- sign up on Raxorpay and complete KYC
+- cereated a UI for premium page
+- creating an API for create order backend
+- added my key and secrect in env file (backend )
+- Initialized Razorpay in utils
+- creating order on Razorpay
+- creating Schema and model
+- saved the order in payments collection
+- make the API dynamic 
+- Setup Razorpay webhook on your live API
+- ref https://razorpay.com/docs/webhooks/validate-test/a

@@ -7,8 +7,8 @@ import { Base_Url } from '../utils/constant';
 
 function Login() {
   // Corrected typo from setEmialId to setEmailId
-  const [email, setEmailId] = useState("chum@gmail.com");
-  const [password, setPassword] = useState("chumT@123_321");
+  const [email, setEmailId] = useState("sarah.j.dev@gmail.com");
+  const [password, setPassword] = useState("P@ssw0rd_Test!1");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [error, setError] = useState("");

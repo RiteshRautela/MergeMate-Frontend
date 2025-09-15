@@ -1,4 +1,6 @@
+import axios from 'axios';
 import React from 'react';
+import { Base_Url } from "../utils/constant"
 
 const Premium = () => {
     // Reusable checkmark icon component
@@ -15,7 +17,34 @@ const Premium = () => {
         </svg>
     );
 
+        const handleBuyClick = async(type) =>{
+            const order = axios.post(Base_Url+'/payment/create',{
+                membershipType:type,
+            } , {withCredentials: true})
 
+            const  {amount, keyId , currency , notes , orderId} = (await order).data;
+
+            // it should open the razorpay Dialog Box
+            const options = {
+                key:keyId, // Replace with your Razorpay key_id
+                amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+                currency,
+                name: 'MergeMate',
+                description: 'Connect to other developers',
+                order_id : orderId, // This is the order_id created in the backend
+                callback_url: 'http://localhost:3000/payment-success', // Your success URL
+                prefill: {
+                  name: notes.firstName + ' ' + notes.lastName,
+                  email: notes.emailId,
+                  contact: '9999999999'
+                },
+                theme: {
+                  color: '#F37254'
+                },
+              };
+            const rzp = new window.Razorpay(options);
+            rzp.open();
+        }
     return (
         <div className="min-h-screen bg-base-200 flex items-center justify-center p-4">
             <div className="flex w-full max-w-4xl flex-col lg:flex-row items-center justify-center gap-8">
@@ -51,7 +80,7 @@ const Premium = () => {
                             </li>
                         </ul>
                         <div className="mt-6">
-                            <button className="btn btn-outline btn-primary btn-block">Choose Silver</button>
+                            <button onClick={() => handleBuyClick("silver")} className="btn btn-outline btn-primary btn-block">Choose Silver</button>
                         </div>
                     </div>
                 </div>
@@ -90,7 +119,7 @@ const Premium = () => {
                             </li>
                         </ul>
                         <div className="mt-6">
-                            <button className="btn btn-warning btn-block">Choose Gold</button>
+                            <button onClick={() => handleBuyClick("gold")} className="btn btn-warning btn-block">Choose Gold</button>
                         </div>
                     </div>
                 </div>
