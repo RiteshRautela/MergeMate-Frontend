@@ -1,9 +1,12 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Base_Url } from "../utils/constant"
 
 const Premium = () => {
     const [isUserPremium, setIsUserPremium] = useState(false)
+    useEffect(() => {
+        verifyPremiumUser()
+    } , [])
     // Reusable checkmark icon component
     const verifyPremiumUser = async () => {
         const res = axios.get(Base_Url + "/premium/verify", { withCredentials: true })
@@ -12,6 +15,8 @@ const Premium = () => {
             setIsUserPremium(true)
         }
     }
+
+   
 
     const CheckmarkIcon = () => (
         <svg xmlns="http://www.w3.org/2000/svg" className="size-4 me-2 inline-block text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor">
