@@ -17,6 +17,7 @@ function Login() {
   const navigate = useNavigate();
 
   const handleLogin = async () => {
+    setError("");
     try {
       const res = await axios.post(Base_Url + "/login", {
         emailId: email,
@@ -25,7 +26,7 @@ function Login() {
         withCredentials: true
       });
       dispatch(addUser(res.data));
-      navigate("/home");
+      navigate("/feed");
     } catch (err) {
       setError(err.response?.data || "something went wrong");
       console.error("Login failed:", err.response?.data);
@@ -33,6 +34,7 @@ function Login() {
   };
 
   const handleSignUp = async () => {
+    setError("");
     try {
       const res = await axios.post(Base_Url + "/signup", {
 
@@ -44,7 +46,7 @@ function Login() {
         withCredentials: true
       });
       dispatch(addUser(res.data));
-      navigate("/home");
+      navigate("/feed");
     } catch (err) {
       setError(err.response?.data || "something went wrong");
       console.error("Login failed:", err.response?.data);
@@ -118,7 +120,15 @@ function Login() {
           <div className="card-actions justify-center required my-5">
             <button className="btn btn-primary w-full" onClick={isLogInForm ? handleLogin : handleSignUp}>{isLogInForm ? "Login" : "SignUp"}</button>
           </div>
-          <p className='cursor-pointer m-auto py-2' onClick={() => setIsLogInForm((value) => !value)}>{isLogInForm ? "New User ? SignUp Here" : "Existing User ? Login Here"}</p>
+          <p
+            className='cursor-pointer m-auto py-2'
+            onClick={() => {
+              setError("");
+              setIsLogInForm((value) => !value);
+            }}
+          >
+            {isLogInForm ? "New User ? SignUp Here" : "Existing User ? Login Here"}
+          </p>
         </div>
       </div>
     </div>

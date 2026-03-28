@@ -28,17 +28,17 @@ function Navbar() {
     return (
         <div className="navbar l bg-base-200 shadow-sm">
             <div className="flex-1">
-                <Link to={user && user._id ? "/feed" : "/login"} className="btn btn-ghost text-xl">MergeMate</Link>
+                <Link to={user?._id ? "/feed" : "/login"} className="btn btn-ghost text-xl">MergeMate</Link>
             </div>
             <div className="flex gap-2">
                 {/* Only show avatar if user is logged in */}
-                {user && user._id && (
+                {user?._id && (
                     <div className="dropdown dropdown-end mx-4">
                         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                             <div className="w-10 rounded-full">
                                 <img
                                     alt="user photo"
-                                    src={user.photoUrl}
+                                    src={user.photoUrl || "https://via.placeholder.com/80?text=User"}
                                 />
                             </div>
                         </div>
