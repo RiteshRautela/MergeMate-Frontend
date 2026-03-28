@@ -72,3 +72,13 @@ UI19
 - make the API dynamic 
 - Setup Razorpay webhook on your live API
 - ref https://razorpay.com/docs/webhooks/validate-test/a
+
+--------------------------------------------------------------------------------------------------------------------
+- implementing Real-Time Communication feature using Web-Socket
+- Socket.IO is a library that enables low-latency, bidirectional and event-based communication between a client and a server. library https://socket.io/
+- Buid the UI for a chat window on /chat/:targetUserId
+- Setup socket.io in backend 
+- npm i socket.io
+
+----------------
+package for fronend ->  npm i socket.io-client

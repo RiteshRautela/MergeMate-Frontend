@@ -25,7 +25,7 @@ function Login() {
         withCredentials: true
       });
       dispatch(addUser(res.data));
-      navigate("/feed");
+      navigate("/home");
     } catch (err) {
       setError(err.response?.data || "something went wrong");
       console.error("Login failed:", err.response?.data);
@@ -44,7 +44,7 @@ function Login() {
         withCredentials: true
       });
       dispatch(addUser(res.data));
-      navigate("/profile");
+      navigate("/home");
     } catch (err) {
       setError(err.response?.data || "something went wrong");
       console.error("Login failed:", err.response?.data);
